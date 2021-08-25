@@ -1,0 +1,15 @@
+Directory structure:
+
+1. type of vertical position
+2. analysis time
+
+File name syntax:
+EFS_<YEAR><MONTH><DAY><HOUR>+<SECONDS>s_<TYPE_OF_VERTICAL_POSITION>.grb2
+YEAR: year of the analysis
+MONTH: month of the analysis
+DAY: day of the analysis
+HOUR: hour of the analysis
+SECONDS: seconds into the model run
+TYPE_OF_VERTICAL_POSITION: "pressure_levels" or "surface"
+
+All times in UTC.
