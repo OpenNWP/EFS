@@ -28,7 +28,6 @@ echo "Collection of observational data completed."
 # executing the formatter
 echo "Starting to format observational data ..."
 $da_home_dir/formatter/run_formatter.sh $da_home_dir $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string
-# executing ndvar
 grid_file_name=B5L26T${toa}_O${orography_id}_OL${orography_layers}_SCVT.nc
 
 # finding the background_file
@@ -48,10 +47,11 @@ then
 background_file=$background_file_candidate
 fi
 
-$da_home_dir/run_ndvar.sh $omp_num_threads $toa $orography_layers $da_home_dir $background_file $orography_id $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string $game_home_dir
+# executing GAME-DA
+$da_home_dir/run_da.sh $omp_num_threads $toa $orography_layers $da_home_dir $background_file $orography_id $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string $game_home_dir
 
 rm -r $game_home_dir/output/$run_id_previous
-# cleaning the input directory of ndvar
+# cleaning the input directory of GAME-DA
 rm $da_home_dir/input/*
 
 END_ASSIMILATION=$(date +%s)
