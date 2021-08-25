@@ -1,4 +1,4 @@
-# This is the default operational run setup for the server. Remember
+#!/bin/bash
 
 efs_home_dir=~/EFS # directory of EFS
 cycle=(0 6 12 18) # the UTC times of the analyses
