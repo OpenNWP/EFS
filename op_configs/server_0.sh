@@ -32,7 +32,6 @@ source $efs_home_dir/sh/root_script.sh
 #20 9 * * * /home/ubuntu/EFS/op_configs/server_0.sh > /home/ubuntu/log_6Z 2>&1
 #20 15 * * * /home/ubuntu/EFS/op_configs/server_0.sh > /home/ubuntu/log_12Z 2>&1
 #20 21 * * * /home/ubuntu/EFS/op_configs/server_0.sh > /home/ubuntu/log_18Z 2>&1
-#0 3 * * * /home/ubuntu/updating/update_procedure.sh > /home/ubuntu/log_updating 2>&1
-#19 3 * * * sudo service apache2 restart
+#50 2 * * * /home/ubuntu/updating/update_procedure.sh > /home/ubuntu/log_updating 2>&1
 #
 
