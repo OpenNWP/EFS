@@ -2,7 +2,6 @@
 
 # basic run properties
 game_home_dir=${BASH_ARGV[6]}
-operator=OpenNWP.org # the ID of the person / group / institution running the model
 ideal_input_id=-1 # specifies which test scenario to run (-1 corresponds to an NWP run)
 run_span=${BASH_ARGV[7]} # how long the model is supposed to run
 run_id=${BASH_ARGV[8]} # how long the model is supposed to run
