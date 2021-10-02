@@ -13,43 +13,27 @@ plot_interval=${BASH_ARGV[8]} # the interval between plots in seconds
 start_time_since_init=${BASH_ARGV[9]} # when to begin plotting reative to the model initialization
 omp_num_threads=${BASH_ARGV[10]} # relevant only for OMP
 disp_shortname_list=(
-2t gust cape
-prmsl gh gh prmsl gh gh
 2t prmsl surface_wind tcc rprate sprate gh gh r cape
 ) # short names according to grib as an array 
 disp_level_list=(
-2 10 0
-0 500 200 0 500 200
 2 0 10 0 0 0 500 200 850 0
 ) # levels according to grib as an array
 on_pressure_level_list=(
-0 0 0
-0 1 1 0 1 1
 0 0 0 0 0 0 1 1 1 0
 ) # set this to 1 for each plot individually if the variable resides on pressure levels
 plot_intervals_list=(
-$plot_interval $plot_interval $plot_interval
-$plot_interval $plot_interval $plot_interval $plot_interval $plot_interval $plot_interval
 $plot_interval $plot_interval $plot_interval $plot_interval $plot_interval $plot_interval $plot_interval $plot_interval $plot_interval $plot_interval
 ) # every how many seconds you want to plot each variable
 uniform_colormap_list=(
-1 1 1
-1 1 1 1 1 1
 0 0 0 0 0 0 1 1 1 1
 ) # set this to 1 for each plot individually if you want to enforce a uniform colormap for all the time steps
 scope_list=(
-WORLD WORLD WORLD
-ARCTIC ARCTIC ARCTIC ANTARCTIC ANTARCTIC ANTARCTIC
 CEU CEU CEU CEU CEU CEU CEU CEU CEU CEU
 ) # the areas of the plots
 projections_list=(
-EckertIII EckertIII EckertIII
-Stereographic Stereographic Stereographic Stereographic Stereographic Stereographic
 Gnomonic Gnomonic Gnomonic Gnomonic Gnomonic Gnomonic Gnomonic Gnomonic Gnomonic Gnomonic
 ) # the projections of the plots
 synoptical_time_mode=(
-1 1 1
-1 1 1 1 1 1
 1 1 1 1 1 1 1 1 1 1
 ) # this forces the time description to be of the form "init: ..., valid: ... (+ ....)"
 source $game_home_dir/plotting/.sh/maps_root.sh # this is the script from which the python plot scripts are called
