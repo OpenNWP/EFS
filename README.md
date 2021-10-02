@@ -11,3 +11,7 @@ The general purpose of the `EFS` is to
 * run `GAME`,
 * execute the plot scripts of `GAME` to produce visual products,
 * manage uploading the data to a website and removing old data.
+
+## Directory structure
+
+The file `sh/root_script.sh` is the main script, it manages the execution of tasks.
