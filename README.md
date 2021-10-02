@@ -4,7 +4,7 @@ This is a collection of bash scripts needed for running GAME operationally (for 
 
 ## General purpose
 
-The genral purpose of the `EFS` is to
+The general purpose of the `EFS` is to
 
 * call the `obs_collector` of `GAME-DA` to download observations from the latest analysis time window,
 * call `GAME-DA` for data assimilation,
