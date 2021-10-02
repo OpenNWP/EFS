@@ -14,4 +14,9 @@ The general purpose of the `EFS` is to
 
 ## Directory structure
 
-The file `sh/root_script.sh` is the main script, it manages the execution of tasks.
+* The file `sh/root_script.sh` is the main script, it manages the execution of tasks.
+* The directory `op_configs` contains scripts defining the general configuration of the operational setup (directoris of the relevant software components, analysis times, etc.).
+* The directory `run_scripts` contains run scripts of `GAME` with bash arguments. If you want to change the runtime configuration of the model, do it here.
+* The directory `plot_scripts` contains the list of variables to be plotted.
+
+The rest is rather self-explanatory.
