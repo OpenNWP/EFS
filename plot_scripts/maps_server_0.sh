@@ -13,7 +13,7 @@ plot_interval=${BASH_ARGV[8]} # the interval between plots in seconds
 start_time_since_init=${BASH_ARGV[9]} # when to begin plotting reative to the model initialization
 omp_num_threads=${BASH_ARGV[10]} # relevant only for OMP
 disp_shortname_list=(
-2t surface_wind rprate sprate cape
+2t gust rprate sprate cape
 ) # short names according to grib as an array 
 disp_level_list=(
 2 10 0 0 0
