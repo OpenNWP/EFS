@@ -32,6 +32,7 @@ damping_start_height_over_toa=0.53 # Swamp layer boundary in relation to the TOA
 damping_coeff_max=0.25 # maximum swamp layer damping coefficient
 explicit_boundary_layer=0 # switch for an additional simplified horizontal friction in the boundary layer
 impl_thermo_weight=0.75 # weighting parameter of the time stepping
+mixing_length=100.0 # mixing length for the vertical diffusion scheme
 
 # "physics" configuration
 rad_on=1 # turn on if you want radiation
