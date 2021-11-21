@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This file deletes old files from $directory.
+
 year_yesterday=$(date --utc -d @$(($now - 86400)) +%Y)
 month_yesterday=$(python3 -c "print(int('$(date --utc -d @$(($now - 86400)) +%m)'))")
 day_yesterday=$(python3 -c "print(int('$(date --utc -d @$(($now - 86400)) +%d)'))")
