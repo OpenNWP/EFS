@@ -82,8 +82,13 @@ cp $game_home_dir/output/$run_id/*pressure_levels.grb2 $ftp_destination/model_ou
 START_PP=$(date +%s)
 if [ $plot_maps -eq 1 ]
 then
-# creating the plots
 
+# creating the JSON files
+echo "Creating JSON files ..."
+python3 $ftp_destination/../py/grib2json.py $game_home_dir/output/$run_id/$run_id+$((6*3600))s_surface.grb2 $ftp_destination/../json/wind.json
+echo "JSON files created."
+
+# creating the plots
 if [ $run_span -gt $((72*3600)) ]
 then
 $efs_home_dir/plot_scripts/maps_server_0.sh $omp_num_threads 0 $map_plot_interval_early $analysis_hour $analysis_day $analysis_month $analysis_year $figs_save_path/visualizations/$analysis_hour"UTC" $game_home_dir $run_id $((72*3600))
