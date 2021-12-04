@@ -85,7 +85,7 @@ then
 
 # creating the JSON files
 echo "Creating JSON files ..."
-python3 $ftp_destination/../py/grib2json.py $game_home_dir/output/$run_id/$run_id+$((6*3600))s_surface.grb2 $ftp_destination/../json/wind.json
+python3 $backend_home/py/grib2json.py $game_home_dir/output/$run_id/$run_id+$((6*3600))s_surface.grb2 $backend_home/json/wind.json
 echo "JSON files created."
 
 # creating the plots

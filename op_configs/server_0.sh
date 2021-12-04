@@ -8,6 +8,7 @@ target=4200 # time length we target for the whole procedure
 da_home_dir=~/GAME-DA # the directory where ndvar resides
 game_home_dir=~/GAME # the home directory of GAME
 ftp_destination=~/website/data # The FTP directory.
+backend_home=~/backend # the directory of the backend
 run_script=run_model_0.sh # the run script template you want to use (must exist in the directory run_scripts)
 res_id=5 # resolution ID (number of bisections of basic icosahedral triangles)
 number_of_layers=26
