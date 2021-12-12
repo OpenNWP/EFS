@@ -57,13 +57,9 @@ rm $da_home_dir/input/*
 END_ASSIMILATION=$(date +%s)
 DIFF_ASSIMILATION=$(echo "$END_ASSIMILATION - $START_ASSIMILATION" | bc)
 
-cp $efs_home_dir/run_scripts/$run_script $game_home_dir/run_scripts/nwp.sh
-# making the model input file executable
-chmod +x $game_home_dir/run_scripts/nwp.sh
-
 START_MODEL=$(date +%s)
 # executing the model
-$game_home_dir/run_scripts/nwp.sh $omp_num_threads $delta_t_between_analyses $orography_id $run_id $run_span $game_home_dir $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string $toa $orography_layers
+$game_home_dir/run_scripts/op.sh $omp_num_threads $delta_t_between_analyses $orography_id $run_id $run_span $game_home_dir $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string $toa $orography_layers
 END_MODEL=$(date +%s)
 DIFF_MODEL=$(echo "$END_MODEL - $START_MODEL" | bc)
 
