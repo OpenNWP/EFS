@@ -19,6 +19,6 @@ The general purpose of the EFS is to
 
 ## Background state file generation
 
-Normally, EFS will pick the result of the previous model run as the background state of the data assimilation. At the first model run of a forecast cycle, however, this is not possible. Instead, the standard atmosphere is used as the background state. In order to create the required file, a run script called `create_da_background.sh` is included in GAME.
+Normally, EFS will pick the result of the previous model run as the background state of the data assimilation. In the case of the first run of a forecast cycle, however, this is not possible. Instead, the standard atmosphere is used as the background state. In order to create the required file, a run script called `create_da_background.sh` is included in GAME.
 
 The rest is rather self-explanatory.
