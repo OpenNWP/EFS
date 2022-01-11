@@ -17,4 +17,8 @@ The general purpose of the EFS is to
 * The file `sh/root_script.sh` is the main script, it manages the execution of the tasks.
 * The directory `op_configs` contains scripts defining the general configuration of the operational setup (directories of the relevant software components, analysis times, etc.).
 
+## Background state file generation
+
+Normally, EFS will pick the result of the previous model run as the background state of the data assimilation. At the first model run of a forecast cycle, however, this is not possible. Instead, the standard atmosphere is used as the background state. In order to create the required file, a run script called `create_da_background.sh` is included in GAME.
+
 The rest is rather self-explanatory.
