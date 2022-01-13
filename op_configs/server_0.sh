@@ -12,7 +12,6 @@ backend_home=~/backend # the directory of the backend
 res_id=5 # resolution ID (number of bisections of basic icosahedral triangles)
 number_of_layers=26
 toa=41152 # top of atmosphere
-orography_layers=23 # number of layers following the orography
 analysis_delay_min=175 # the number of minutes after which an analysis becomes available
 orography_id=2 # the ID of the orography field you want to use (see the game orography generator to find out about the meaning of the IDs)
 plot_maps=1 # set this to one if you want to plot maps
