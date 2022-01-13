@@ -28,7 +28,6 @@ echo "Collection of observational data completed."
 # executing the formatter
 echo "Starting to format observational data ..."
 $da_home_dir/formatter/run_formatter.sh $da_home_dir $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string
-grid_file_name=B5L26T${toa}_O${orography_id}_OL${orography_layers}_SCVT.nc
 
 # finding the background_file
 # default
@@ -48,7 +47,7 @@ background_file=$background_file_candidate
 fi
 
 # executing GAME-DA
-$da_home_dir/run_da.sh $omp_num_threads $toa $orography_layers $da_home_dir $background_file $orography_id $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string $game_home_dir
+$da_home_dir/run_da.sh $omp_num_threads $da_home_dir $background_file $orography_id $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string $game_home_dir
 
 rm -r $game_home_dir/output/$run_id_previous
 # cleaning the input directory of GAME-DA
@@ -59,7 +58,7 @@ DIFF_ASSIMILATION=$(echo "$END_ASSIMILATION - $START_ASSIMILATION" | bc)
 
 START_MODEL=$(date +%s)
 # executing the model
-$game_home_dir/run_scripts/op.sh $omp_num_threads $delta_t_between_analyses $orography_id $run_id $run_span $game_home_dir $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string $toa $orography_layers
+$game_home_dir/run_scripts/op.sh $omp_num_threads $delta_t_between_analyses $orography_id $run_id $run_span $game_home_dir $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string
 END_MODEL=$(date +%s)
 DIFF_MODEL=$(echo "$END_MODEL - $START_MODEL" | bc)
 
