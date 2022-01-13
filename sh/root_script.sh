@@ -81,8 +81,12 @@ then
 # creating the JSON files
 echo "Creating JSON files ..."
 python3 $backend_home/py/grib2json.py $game_home_dir/output/$run_id/$run_id+$((6*3600))s_surface.grb2 ~/website/data/weather/current/current-wind-surface-level-gfs-1.0.json
+if [ $? -ne 0 ]
+then
+echo "JSON files creation failed."
+else
 echo "JSON files created."
-
+fi
 # creating the plots
 if [ $run_span -gt $((72*3600)) ]
 then
