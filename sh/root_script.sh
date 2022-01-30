@@ -31,7 +31,7 @@ $da_home_dir/formatter/run_formatter.sh $da_home_dir $analysis_year $analysis_mo
 
 # finding the background_file
 # default
-background_file=$game_home_dir/standard_oro2.nc
+background_file=$game_home_dir/standard_oro1.nc
 # background state file from the previous run
 source $efs_home_dir/sh/determine_previous_analysis_time.sh
 analysis_hour_extended_string_prev=$analysis_hour_prev
