@@ -90,10 +90,10 @@ fi
 # creating the plots
 if [ $run_span -gt $((72*3600)) ]
 then
-$game_home_dir/plotting/plot_maps_batch.sh $omp_num_threads 0 $map_plot_interval_early $analysis_hour $analysis_day $analysis_month $analysis_year $figs_save_path/visualizations/$analysis_hour"UTC" $game_home_dir $run_id $((72*3600))
-$game_home_dir/plotting/plot_maps_batch.sh $omp_num_threads $((72*3600 + $map_plot_interval_late)) $map_plot_interval_late $analysis_hour $analysis_day $analysis_month $analysis_year $figs_save_path/visualizations/$analysis_hour"UTC" $game_home_dir $run_id $run_span
+$game_home_dir/plotting/plot_maps_batch.sh $omp_num_threads 0 $map_plot_interval_early $figs_save_path/visualizations/$analysis_hour"UTC" $game_home_dir $run_id $((72*3600))
+$game_home_dir/plotting/plot_maps_batch.sh $omp_num_threads $((72*3600 + $map_plot_interval_late)) $map_plot_interval_late $figs_save_path/visualizations/$analysis_hour"UTC" $game_home_dir $run_id $run_span
 else
-$game_home_dir/plotting/plot_maps_batch.sh $omp_num_threads 0 $map_plot_interval_early $analysis_hour $analysis_day $analysis_month $analysis_year $figs_save_path/visualizations/$analysis_hour"UTC" $game_home_dir $run_id $run_span
+$game_home_dir/plotting/plot_maps_batch.sh $omp_num_threads 0 $map_plot_interval_early $figs_save_path/visualizations/$analysis_hour"UTC" $game_home_dir $run_id $run_span
 fi
 
 fi
