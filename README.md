@@ -6,8 +6,7 @@ This is a collection of bash scripts needed for running GAME operationally (for 
 
 The general purpose of the EFS is to
 
-* call the `obs_collector` of real2GAME to download the latest analysis of another model,
-* call real2GAME for interpolating the downloaded data to the model grid,
+* call real2GAME for interpolating the analysis of another model to the model grid of GAME,
 * run GAME,
 * execute the plot scripts of GAME to produce visual products,
 * manage uploading the data to a website and removing old data.
