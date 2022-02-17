@@ -22,12 +22,12 @@ START_ASSIMILATION=$(date +%s)
 
 # executing the obs_collector
 echo "Starting to collect observational data ..."
-$da_home_dir/obs_collector/run.sh $da_home_dir $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string
+$real2game_home_dir/obs_collector/run.sh $real2game_home_dir $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string
 echo "Collection of observational data completed."
 
 # executing the formatter
 echo "Starting to format observational data ..."
-$da_home_dir/formatter/run_formatter.sh $da_home_dir $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string
+$real2game_home_dir/formatter/run_formatter.sh $real2game_home_dir $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string
 
 # finding the background_file
 # default
@@ -46,12 +46,12 @@ then
 background_file=$background_file_candidate
 fi
 
-# executing GAME-DA
-$da_home_dir/run_da.sh $omp_num_threads $da_home_dir $background_file $orography_id $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string $game_home_dir
+# executing real2GAME
+$real2game_home_dir/run_da.sh $omp_num_threads $real2game_home_dir $background_file $orography_id $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string $game_home_dir
 
 rm -r $game_home_dir/output/$run_id_previous
-# cleaning the input directory of GAME-DA
-rm $da_home_dir/input/*
+# cleaning the input directory of real2GAME
+rm $real2game_home_dir/input/*
 
 END_ASSIMILATION=$(date +%s)
 DIFF_ASSIMILATION=$(echo "$END_ASSIMILATION - $START_ASSIMILATION" | bc)
