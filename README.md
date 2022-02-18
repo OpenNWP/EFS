@@ -1,13 +1,13 @@
 # Experimental Forecasting System (EFS)
 
-This is a collection of bash scripts needed for running GAME operationally (for numerical weather prediction). A formal documentation is not included and not necessary. This README provides an overview of the structure and contents of the scripts.
+This is a collection of bash scripts needed for running GAME and L-GAME operationally (for numerical weather prediction). A formal documentation is not included and not necessary. This README provides an overview of the structure and contents of the scripts.
 
 ## General purpose
 
 The general purpose of the EFS is to
 
-* call real2GAME for interpolating the analysis of another model to the model grid of GAME,
-* run GAME,
+* call real2GAME for interpolating the analysis of another model to the model grid of (L-)GAME and, if necesary, boundary conditions for L-GAME,
+* run GAME and/or L-GAME,
 * execute the plot scripts of GAME to produce visual products,
 * manage uploading the data to a website and removing old data.
 
