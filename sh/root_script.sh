@@ -118,8 +118,8 @@ echo "			reality	/ s	target / s":
 echo "total:			$DIFF		$target"
 echo "relative:"
 echo "			reality	/ %	target / %":
-echo "data assimilation:	$assimilation_percentage 		25"
-echo "model:			$model_percentage 		50"
+echo "initialization:	$assimilation_percentage 		2"
+echo "model:			$model_percentage 		73"
 echo "post-processing:	$pp_percentage 		25"
 
 
