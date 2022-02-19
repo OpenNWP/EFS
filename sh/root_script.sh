@@ -20,15 +20,6 @@ run_id="EFS_$analysis_year$analysis_month$analysis_day$analysis_hour_extended_st
 
 START_ASSIMILATION=$(date +%s)
 
-# executing the downloader
-echo "Starting to download initial data ..."
-$real2game_home_dir/downloader/run.sh $real2game_home_dir $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string
-echo "Collection of initial data completed."
-
-# executing the formatter
-echo "Starting to format observational data ..."
-$real2game_home_dir/formatter/run_formatter.sh $real2game_home_dir $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string
-
 # finding the background_file
 # default
 background_file=$game_home_dir/standard_oro1.nc
@@ -47,7 +38,7 @@ background_file=$background_file_candidate
 fi
 
 # executing real2GAME
-$real2game_home_dir/run_real2game.sh $omp_num_threads $real2game_home_dir $background_file $orography_id $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string $game_home_dir
+$real2game_home_dir/run.sh $omp_num_threads $real2game_home_dir $background_file $orography_id $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string $game_home_dir
 
 rm -r $game_home_dir/output/$run_id_previous
 # cleaning the input directory of real2GAME
