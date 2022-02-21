@@ -39,11 +39,10 @@ fi
 
 # executing real2GAME
 $real2game_home_dir/run.sh $omp_num_threads $real2game_home_dir $background_file $orography_id $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string $game_home_dir
-
+# the output of the previous run is not needed anymore now
 rm -r $game_home_dir/output/$run_id_previous
-# cleaning the input directory of real2GAME
-rm $real2game_home_dir/input/*
 
+# time keeping
 END_ASSIMILATION=$(date +%s)
 DIFF_ASSIMILATION=$(echo "$END_ASSIMILATION - $START_ASSIMILATION" | bc)
 
