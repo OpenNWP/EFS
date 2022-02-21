@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This script nests L-GAME into the global ICON model.
+
 efs_home_dir=~/EFS # directory of EFS
 cycle=(0 6 12 18) # the UTC times of the analyses
 delta_t_between_analyses=21600 # the temporal distance between two analyses
