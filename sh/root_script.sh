@@ -60,9 +60,9 @@ source $efs_home_dir/sh/cleanup.sh
 directory=$ftp_destination/visualizations/$analysis_hour"UTC"
 source $efs_home_dir/sh/cleanup.sh
 
-# copying the output to the FTP server.
-cp $game_home_dir/output/$run_id/*surface.grb2 $ftp_destination/model_output/surface/$analysis_hour"UTC"/
-cp $game_home_dir/output/$run_id/*pressure_levels.grb2 $ftp_destination/model_output/pressure_levels/$analysis_hour"UTC"/
+# moving the output to the FTP server
+mv $game_home_dir/output/$run_id/*surface.grb2 $ftp_destination/model_output/surface/$analysis_hour"UTC"/
+mv $game_home_dir/output/$run_id/*pressure_levels.grb2 $ftp_destination/model_output/pressure_levels/$analysis_hour"UTC"/
 
 START_PP=$(date +%s)
 if [ $plot_maps -eq 1 ]
