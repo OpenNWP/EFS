@@ -22,7 +22,7 @@ START_ASSIMILATION=$(date +%s)
 
 # finding the background_file
 # default
-background_file=$game_home_dir/standard_oro1.nc
+background_file=$model_home_dir/standard_oro1.nc
 # background state file from the previous run
 source $efs_home_dir/sh/determine_previous_analysis_time.sh
 analysis_hour_extended_string_prev=$analysis_hour_prev
@@ -31,16 +31,16 @@ then
 analysis_hour_extended_string_prev="0$analysis_hour_prev"
 fi
 run_id_previous="EFS_$analysis_year_prev$analysis_month_prev$analysis_day_prev$analysis_hour_extended_string_prev"
-background_file_candidate=$game_home_dir/output/$run_id_previous/$run_id_previous+${delta_t_between_analyses}s.nc
+background_file_candidate=$model_home_dir/output/$run_id_previous/$run_id_previous+${delta_t_between_analyses}s.nc
 if [ -f $background_file_candidate ]
 then
 background_file=$background_file_candidate
 fi
 
 # executing real2GAME
-$real2game_home_dir/run.sh $model_source_id $omp_num_threads $real2game_home_dir $background_file $orography_id $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string $game_home_dir
+$real2game_home_dir/run.sh $model_source_id $omp_num_threads $real2game_home_dir $background_file $orography_id $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string $model_home_dir
 # the output of the previous run is not needed anymore now
-rm -r $game_home_dir/output/$run_id_previous
+rm -r $model_home_dir/output/$run_id_previous
 
 # time keeping
 END_ASSIMILATION=$(date +%s)
@@ -48,7 +48,7 @@ DIFF_ASSIMILATION=$(echo "$END_ASSIMILATION - $START_ASSIMILATION" | bc)
 
 START_MODEL=$(date +%s)
 # executing the model
-$game_home_dir/run_scripts/op.sh $omp_num_threads $delta_t_between_analyses $orography_id $run_id $run_span $game_home_dir $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string
+$model_home_dir/run_scripts/op.sh $omp_num_threads $delta_t_between_analyses $orography_id $run_id $run_span $model_home_dir $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string
 END_MODEL=$(date +%s)
 DIFF_MODEL=$(echo "$END_MODEL - $START_MODEL" | bc)
 
@@ -61,8 +61,8 @@ directory=$ftp_destination/visualizations/$analysis_hour"UTC"
 source $efs_home_dir/sh/cleanup.sh
 
 # copying the output to the FTP server
-cp $game_home_dir/output/$run_id/*surface.grb2 $ftp_destination/model_output/surface/$analysis_hour"UTC"/
-cp $game_home_dir/output/$run_id/*pressure_levels.grb2 $ftp_destination/model_output/pressure_levels/$analysis_hour"UTC"/
+cp $model_home_dir/output/$run_id/*surface.grb2 $ftp_destination/model_output/surface/$analysis_hour"UTC"/
+cp $model_home_dir/output/$run_id/*pressure_levels.grb2 $ftp_destination/model_output/pressure_levels/$analysis_hour"UTC"/
 
 START_PP=$(date +%s)
 if [ $plot_maps -eq 1 ]
@@ -70,7 +70,7 @@ then
 
 # creating the JSON files
 echo "Creating JSON files ..."
-python3 $backend_home/py/grib2json.py $game_home_dir/output/$run_id/$run_id+$((6*3600))s_surface.grb2 ~/website/data/weather/current/current-wind-surface-level-gfs-1.0.json
+python3 $backend_home/py/grib2json.py $model_home_dir/output/$run_id/$run_id+$((6*3600))s_surface.grb2 ~/website/data/weather/current/current-wind-surface-level-gfs-1.0.json
 if [ $? -ne 0 ]
 then
 echo "JSON files creation failed."
@@ -80,23 +80,23 @@ fi
 # creating the plots
 if [ $run_span -gt $((72*3600)) ]
 then
-$game_home_dir/plotting/plot_maps_batch.sh $omp_num_threads 0 $map_plot_interval_early $figs_save_path/visualizations/$analysis_hour"UTC" $game_home_dir $run_id $((72*3600))
-$game_home_dir/plotting/plot_maps_batch.sh $omp_num_threads $((72*3600 + $map_plot_interval_late)) $map_plot_interval_late $figs_save_path/visualizations/$analysis_hour"UTC" $game_home_dir $run_id $run_span
+$model_home_dir/plotting/plot_maps_batch.sh $omp_num_threads 0 $map_plot_interval_early $figs_save_path/visualizations/$analysis_hour"UTC" $model_home_dir $run_id $((72*3600))
+$model_home_dir/plotting/plot_maps_batch.sh $omp_num_threads $((72*3600 + $map_plot_interval_late)) $map_plot_interval_late $figs_save_path/visualizations/$analysis_hour"UTC" $model_home_dir $run_id $run_span
 else
-$game_home_dir/plotting/plot_maps_batch.sh $omp_num_threads 0 $map_plot_interval_early $figs_save_path/visualizations/$analysis_hour"UTC" $game_home_dir $run_id $run_span
+$model_home_dir/plotting/plot_maps_batch.sh $omp_num_threads 0 $map_plot_interval_early $figs_save_path/visualizations/$analysis_hour"UTC" $model_home_dir $run_id $run_span
 fi
 
 fi
 
 # cleaning the output directory of GAME
-rm $game_home_dir/output/$run_id/*surface.grb2
-rm $game_home_dir/output/$run_id/*pressure_levels.grb2
+rm $model_home_dir/output/$run_id/*surface.grb2
+rm $model_home_dir/output/$run_id/*pressure_levels.grb2
 
 END_PP=$(date +%s)
 DIFF_PP=$(echo "$END_PP - $START_PP" | bc)
 
 # deleting the input from the model's input directory
-rm $game_home_dir/nwp_init/*
+rm $model_home_dir/nwp_init/*
 
 # time analysis
 END=$(date +%s)
