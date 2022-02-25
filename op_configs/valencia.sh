@@ -5,12 +5,12 @@
 efs_home_dir=~/EFS # directory of EFS
 cycle=(0 6 12 18) # the UTC times of the analyses
 delta_t_between_analyses=21600 # the temporal distance between two analyses
-run_spans=($((168*3600)) $((168*3600)) $((168*3600)) $((168*3600))) # the lengths of the runs
+run_spans=($((60*3600)) $((60*3600)) $((60*3600)) $((60*3600))) # the lengths of the runs
 model_id=1 # 0: GAME, 1: L-GAME
 model_source_id=1 # defines with which model to initialize the run
 target=4200 # time length we target for the whole procedure
 real2game_home_dir=~/real2GAME # the directory where real2GAME resides
-game_home_dir=~/GAME # the home directory of GAME
+game_home_dir=~/L-GAME # the home directory of GAME
 ftp_destination=~/website/data # The FTP directory.
 backend_home=~/backend # the directory of the backend
 res_id=5 # resolution ID (number of bisections of basic icosahedral triangles)
