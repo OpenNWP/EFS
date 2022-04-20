@@ -38,7 +38,7 @@ background_file=$background_file_candidate
 fi
 
 # executing real2GAME
-$real2game_home_dir/run.sh $omp_num_threads $real2game_home_dir $background_file $orography_id $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string $model_home_dir
+$real2game_home_dir/run.sh $omp_num_threads $real2game_home_dir $background_file 1 $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string $model_home_dir
 # the output of the previous run is not needed anymore now
 rm -r $model_home_dir/output/$run_id_previous
 
@@ -48,7 +48,7 @@ DIFF_ASSIMILATION=$(echo "$END_ASSIMILATION - $START_ASSIMILATION" | bc)
 
 START_MODEL=$(date +%s)
 # executing the model
-$model_home_dir/run_scripts/op.sh $omp_num_threads $delta_t_between_analyses $orography_id $run_id $run_span $model_home_dir $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string
+$model_home_dir/run_scripts/op.sh $omp_num_threads $delta_t_between_analyses 1 $run_id $run_span $model_home_dir $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string
 END_MODEL=$(date +%s)
 DIFF_MODEL=$(echo "$END_MODEL - $START_MODEL" | bc)
 
