@@ -95,8 +95,10 @@ rm $model_home_dir/output/$run_id/*pressure_levels.grb2
 END_PP=$(date +%s)
 DIFF_PP=$(echo "$END_PP - $START_PP" | bc)
 
-# deleting the input from the model's input directory
+# deleting the input from the model's input directory apart from the standard background state
+mv $model_home_dir/nwp_init/standard_oro1.nc $model_home_dir/standard_oro1.nc
 rm $model_home_dir/nwp_init/*
+mv $model_home_dir/standard_oro1.nc $model_home_dir/nwp_init/standard_oro1.nc
 
 # time analysis
 END=$(date +%s)
