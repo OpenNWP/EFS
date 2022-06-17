@@ -70,7 +70,7 @@ then
 
 # creating the JSON files
 echo "Creating JSON files ..."
-python3 $backend_home/py/grib2json.py $model_home_dir/output/$run_id/$run_id+$((6*3600))s_surface.grb2 ~/website/worldview/public/data/weather/current/current-wind-surface-level-game.json
+python3 $backend_home/py/grib2json.py $model_home_dir/output/$run_id/$run_id+$((6*3600))s_surface.grb2 ~/website/worldview_data/weather/current/current-wind-surface-level-game.json
 if [ $? -ne 0 ]
 then
 echo "JSON files creation failed."
