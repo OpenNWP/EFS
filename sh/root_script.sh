@@ -7,7 +7,7 @@ START=$(date +%s)
 source $efs_home_dir/sh/determine_latest_analysis_time.sh
 
 # deleting old data from the model output directory
-directory=$ftp_destination/visualizations/$analysis_hour"UTC"
+directory=$ftp_destination/maps/$analysis_hour"UTC"
 source $efs_home_dir/sh/cleanup.sh
 
 # setting the run ID
@@ -57,7 +57,7 @@ directory=$ftp_destination/model_output/surface/$analysis_hour"UTC"
 source $efs_home_dir/sh/cleanup.sh
 directory=$ftp_destination/model_output/pressure_levels/$analysis_hour"UTC"
 source $efs_home_dir/sh/cleanup.sh
-directory=$ftp_destination/visualizations/$analysis_hour"UTC"
+directory=$ftp_destination/maps/$analysis_hour"UTC"
 source $efs_home_dir/sh/cleanup.sh
 
 # copying the output to the FTP server
@@ -80,10 +80,10 @@ fi
 # creating the plots
 if [ $run_span -gt $((72*3600)) ]
 then
-$model_home_dir/plotting/plot_maps_batch.sh $omp_num_threads 0 $map_plot_interval_early $figs_save_path/visualizations/$analysis_hour"UTC" $model_home_dir $run_id $((72*3600))
-$model_home_dir/plotting/plot_maps_batch.sh $omp_num_threads $((72*3600 + $map_plot_interval_late)) $map_plot_interval_late $figs_save_path/visualizations/$analysis_hour"UTC" $model_home_dir $run_id $run_span
+$model_home_dir/plotting/plot_maps_batch.sh $omp_num_threads 0 $map_plot_interval_early $figs_save_path/maps/$analysis_hour"UTC" $model_home_dir $run_id $((72*3600))
+$model_home_dir/plotting/plot_maps_batch.sh $omp_num_threads $((72*3600 + $map_plot_interval_late)) $map_plot_interval_late $figs_save_path/maps/$analysis_hour"UTC" $model_home_dir $run_id $run_span
 else
-$model_home_dir/plotting/plot_maps_batch.sh $omp_num_threads 0 $map_plot_interval_early $figs_save_path/visualizations/$analysis_hour"UTC" $model_home_dir $run_id $run_span
+$model_home_dir/plotting/plot_maps_batch.sh $omp_num_threads 0 $map_plot_interval_early $figs_save_path/maps/$analysis_hour"UTC" $model_home_dir $run_id $run_span
 fi
 
 fi

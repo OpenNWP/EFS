@@ -15,12 +15,12 @@ mkdir $ftp_destination/model_output
 
 cp disclaimer $ftp_destination
 cp readme_server $ftp_destination/model_output/README.txt
-mkdir $ftp_destination/visualizations
+mkdir $ftp_destination/maps
 mkdir $ftp_destination/model_output/surface
 mkdir $ftp_destination/model_output/pressure_levels
 for hour in ${cycle[@]}
 do
 mkdir $ftp_destination/model_output/surface/$hour"UTC"
 mkdir $ftp_destination/model_output/pressure_levels/$hour"UTC"
-mkdir $ftp_destination/visualizations/$hour"UTC"
+mkdir $ftp_destination/maps/$hour"UTC"
 done
