@@ -7,7 +7,7 @@ cycle=(0 6 12 18)
 
 if [ -d $ftp_destination ]
 then
-rm -r $ftp_destination 
+  rm -r $ftp_destination 
 fi
 
 mkdir $ftp_destination
@@ -20,7 +20,7 @@ mkdir $ftp_destination/model_output/surface
 mkdir $ftp_destination/model_output/pressure_levels
 for hour in ${cycle[@]}
 do
-mkdir $ftp_destination/model_output/surface/$hour"UTC"
-mkdir $ftp_destination/model_output/pressure_levels/$hour"UTC"
-mkdir $ftp_destination/maps/$hour"UTC"
+  mkdir $ftp_destination/model_output/surface/$hour"UTC"
+  mkdir $ftp_destination/model_output/pressure_levels/$hour"UTC"
+  mkdir $ftp_destination/maps/$hour"UTC"
 done

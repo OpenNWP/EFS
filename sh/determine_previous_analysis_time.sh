@@ -11,8 +11,8 @@ previous_hour=$(date --utc -d @$previous +%k)
 analysis_hour_prev=${cycle[-1]}
 for i in $(seq 0 1 $((${#cycle[@]} - 2)))
 do
-	if [ ${cycle[$i]} -le $previous_hour ] && [ ${cycle[$(($i + 1))]} -gt $previous_hour ]
-	then
-		analysis_hour_prev=${cycle[$i]}
-	fi
+  if [ ${cycle[$i]} -le $previous_hour ] && [ ${cycle[$(($i + 1))]} -gt $previous_hour ]
+  then
+    analysis_hour_prev=${cycle[$i]}
+  fi
 done
