@@ -14,7 +14,7 @@ source $efs_home_dir/sh/cleanup.sh
 analysis_hour_extended_string=$analysis_hour
 if [ $analysis_hour -lt 10 ]
 then
-analysis_hour_extended_string="0$analysis_hour"
+	analysis_hour_extended_string="0$analysis_hour"
 fi
 run_id="EFS_$analysis_year$analysis_month$analysis_day$analysis_hour_extended_string"
 
@@ -28,13 +28,13 @@ source $efs_home_dir/sh/determine_previous_analysis_time.sh
 analysis_hour_extended_string_prev=$analysis_hour_prev
 if [ $analysis_hour_prev -lt 10 ]
 then
-analysis_hour_extended_string_prev="0$analysis_hour_prev"
+	analysis_hour_extended_string_prev="0$analysis_hour_prev"
 fi
 run_id_previous="EFS_$analysis_year_prev$analysis_month_prev$analysis_day_prev$analysis_hour_extended_string_prev"
 background_file_candidate=$model_home_dir/output/$run_id_previous/$run_id_previous+${delta_t_between_analyses}s.nc
 if [ -f $background_file_candidate ]
 then
-background_file=$background_file_candidate
+	background_file=$background_file_candidate
 fi
 
 # executing real2GAME
@@ -67,16 +67,16 @@ cp $model_home_dir/output/$run_id/*pressure_levels.grb2 $ftp_destination/model_o
 START_PP=$(date +%s)
 if [ $plot_maps -eq 1 ]
 then
-
-# creating the plots
-if [ $run_span -gt $((72*3600)) ]
-then
-$model_home_dir/plotting/plot_maps_batch.sh $omp_num_threads 0 $map_plot_interval_early $figs_save_path/maps/$analysis_hour"UTC" $model_home_dir $run_id $((72*3600))
-$model_home_dir/plotting/plot_maps_batch.sh $omp_num_threads $((72*3600 + $map_plot_interval_late)) $map_plot_interval_late $figs_save_path/maps/$analysis_hour"UTC" $model_home_dir $run_id $run_span
-else
-$model_home_dir/plotting/plot_maps_batch.sh $omp_num_threads 0 $map_plot_interval_early $figs_save_path/maps/$analysis_hour"UTC" $model_home_dir $run_id $run_span
-fi
-
+	
+	# creating the plots
+	if [ $run_span -gt $((72*3600)) ]
+	then
+		$model_home_dir/plotting/plot_maps_batch.sh $omp_num_threads 0 $map_plot_interval_early $figs_save_path/maps/$analysis_hour"UTC" $model_home_dir $run_id $((72*3600))
+		$model_home_dir/plotting/plot_maps_batch.sh $omp_num_threads $((72*3600 + $map_plot_interval_late)) $map_plot_interval_late $figs_save_path/maps/$analysis_hour"UTC" $model_home_dir $run_id $run_span
+	else
+		$model_home_dir/plotting/plot_maps_batch.sh $omp_num_threads 0 $map_plot_interval_early $figs_save_path/maps/$analysis_hour"UTC" $model_home_dir $run_id $run_span
+	fi
+	
 fi
 
 # cleaning the output directory of GAME

@@ -13,9 +13,9 @@ run_span=${run_spans[-1]}
 analysis_hour=${cycle[-1]}
 for i in $(seq 0 1 $((${#cycle[@]} - 2)))
 do
-if [ ${cycle[$i]} -le $now_hour ] && [ ${cycle[$(($i + 1))]} -gt $now_hour ]
-then
-analysis_hour=${cycle[$i]}
-run_span=${run_spans[$i]}
-fi
+	if [ ${cycle[$i]} -le $now_hour ] && [ ${cycle[$(($i + 1))]} -gt $now_hour ]
+	then
+		analysis_hour=${cycle[$i]}
+		run_span=${run_spans[$i]}
+	fi
 done
