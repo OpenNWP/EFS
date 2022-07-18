@@ -61,8 +61,8 @@ directory=$ftp_destination/maps/$analysis_hour"UTC"
 source $efs_home_dir/sh/cleanup.sh
 
 # copying the output to the FTP server
-cp $model_home_dir/output/$run_id/*surface.grb2 $ftp_destination/model_output/surface/$analysis_hour"UTC"/
-cp $model_home_dir/output/$run_id/*pressure_levels.grb2 $ftp_destination/model_output/pressure_levels/$analysis_hour"UTC"/
+cp $model_home_dir/output/$run_id/*surface.nc $ftp_destination/model_output/surface/$analysis_hour"UTC"/
+cp $model_home_dir/output/$run_id/*pressure_levels.nc $ftp_destination/model_output/pressure_levels/$analysis_hour"UTC"/
 
 START_PP=$(date +%s)
 if [ $plot_maps -eq 1 ]
@@ -80,8 +80,8 @@ then
 fi
 
 # cleaning the output directory of GAME
-rm $model_home_dir/output/$run_id/*surface.grb2
-rm $model_home_dir/output/$run_id/*pressure_levels.grb2
+rm $model_home_dir/output/$run_id/*surface.nc
+rm $model_home_dir/output/$run_id/*pressure_levels.nc
 
 END_PP=$(date +%s)
 DIFF_PP=$(echo "$END_PP - $START_PP" | bc)

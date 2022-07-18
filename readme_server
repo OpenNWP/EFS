@@ -4,7 +4,7 @@ Directory structure:
 2. analysis time
 
 File name syntax:
-EFS_<YEAR><MONTH><DAY><HOUR>+<SECONDS>s_<TYPE_OF_VERTICAL_POSITION>.grb2
+EFS_<YEAR><MONTH><DAY><HOUR>+<SECONDS>s_<TYPE_OF_VERTICAL_POSITION>.nc
 YEAR: year of the analysis
 MONTH: month of the analysis
 DAY: day of the analysis
