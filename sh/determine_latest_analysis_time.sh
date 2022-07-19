@@ -3,7 +3,7 @@
 # In this file, the time of the analysis to be executed is determined.
 
 now=$(date +%s)
-now=$(($now - $analysis_delay_min*60))
+now=$(($now - 60*$analysis_delay_min))
 analysis_year=$(date --utc -d @$now +%Y)
 analysis_month=$(date --utc -d @$now +%m)
 analysis_day=$(date --utc -d @$now +%d)

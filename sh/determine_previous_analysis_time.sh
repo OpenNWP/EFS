@@ -2,7 +2,7 @@
 
 # In this file, the time of the analysis to be executed is determined.
 
-previous=$(($now - $delta_t_between_analyses))
+previous=$(($now - 60*$delta_t_between_analyses_min))
 analysis_year_prev=$(date --utc -d @$previous +%Y)
 analysis_month_prev=$(date --utc -d @$previous +%m)
 analysis_day_prev=$(date --utc -d @$previous +%d)
