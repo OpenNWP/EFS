@@ -48,7 +48,7 @@ DIFF_ASSIMILATION=$(echo "$END_ASSIMILATION - $START_ASSIMILATION" | bc)
 
 START_MODEL=$(date +%s)
 # executing the model
-$model_home_dir/run_scripts/op.sh $omp_num_threads $delta_t_between_analyses_min 1 $run_id $run_span $model_home_dir $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string
+$model_home_dir/run_scripts/op.sh $omp_num_threads $delta_t_between_analyses_min 1 $run_id $run_span_min $model_home_dir $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string
 END_MODEL=$(date +%s)
 DIFF_MODEL=$(echo "$END_MODEL - $START_MODEL" | bc)
 
@@ -69,12 +69,12 @@ if [ $plot_maps -eq 1 ]
 then
 
   # creating the plots
-  if [ $run_span -gt $((72*3600)) ]
+  if [ $run_span_min -gt $((72*60)) ]
   then
-    $model_home_dir/plotting/plot_maps_batch.sh $omp_num_threads 0 $map_plot_interval_early_min $figs_save_path/maps/$analysis_hour"UTC" $model_home_dir $run_id $((72*3600))
-    $model_home_dir/plotting/plot_maps_batch.sh $omp_num_threads $((72*3600 + $map_plot_interval_late_min)) $map_plot_interval_late_min $figs_save_path/maps/$analysis_hour"UTC" $model_home_dir $run_id $run_span
+    $model_home_dir/plotting/plot_maps_batch.sh $omp_num_threads 0 $map_plot_interval_early_min $figs_save_path/maps/$analysis_hour"UTC" $model_home_dir $run_id $((72*60))
+    $model_home_dir/plotting/plot_maps_batch.sh $omp_num_threads $((72*60 + $map_plot_interval_late_min)) $map_plot_interval_late_min $figs_save_path/maps/$analysis_hour"UTC" $model_home_dir $run_id $run_span_min
   else
-    $model_home_dir/plotting/plot_maps_batch.sh $omp_num_threads 0 $map_plot_interval_early_min $figs_save_path/maps/$analysis_hour"UTC" $model_home_dir $run_id $run_span
+    $model_home_dir/plotting/plot_maps_batch.sh $omp_num_threads 0 $map_plot_interval_early_min $figs_save_path/maps/$analysis_hour"UTC" $model_home_dir $run_id $run_span_min
   fi
 	
 fi

@@ -3,7 +3,7 @@
 efs_home_dir=~/EFS # directory of EFS
 cycle=(0 6 12 18) # the UTC times of the analyses
 delta_t_between_analyses_min=360 # the temporal distance between two analysesin minutes
-run_spans=($((168*3600)) $((168*3600)) $((168*3600)) $((168*3600))) # the lengths of the runs
+run_spans_min=($((168*60)) $((168*60)) $((168*60)) $((168*60))) # the lengths of the runs in minutes
 model_id=0 # 0: GAME, 1: L-GAME
 target=4200 # time length we target for the whole procedure
 real2game_home_dir=~/real2GAME # the directory where real2GAME resides
