@@ -31,7 +31,7 @@ then
   analysis_hour_extended_string_prev="0$analysis_hour_prev"
 fi
 run_id_previous="EFS_$analysis_year_prev$analysis_month_prev$analysis_day_prev$analysis_hour_extended_string_prev"
-background_file_candidate=$model_home_dir/output/$run_id_previous/$run_id_previous+${delta_t_between_analyses_min}min.nc
+background_file_candidate=$model_home_dir/output/$run_id_previous/$run_id_previous+${delta_t_between_analyses_min}min_hex.nc
 if [ -f $background_file_candidate ]
 then
   background_file=$background_file_candidate
