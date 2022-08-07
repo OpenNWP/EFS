@@ -14,7 +14,7 @@ source $efs_home_dir/sh/cleanup.sh
 analysis_hour_extended_string=$analysis_hour
 if [ $analysis_hour -lt 10 ]
 then
-	analysis_hour_extended_string="0$analysis_hour"
+  analysis_hour_extended_string="0$analysis_hour"
 fi
 run_id="EFS_$analysis_year$analysis_month$analysis_day$analysis_hour_extended_string"
 
