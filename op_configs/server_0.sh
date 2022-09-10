@@ -1,7 +1,7 @@
 #!/bin/bash
 
 efs_home_dir=~/EFS # directory of EFS
-model_id=0 # 0: GAME, 1: L-GAME
+model_id=1 # 1: GAME, 2: L-GAME
 n_layers=26 #  number of layers of the model
 nsoillays=5 # number of soil layers of the model
 cycle=(0 6 12 18) # the UTC times of the analyses
