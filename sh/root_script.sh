@@ -38,7 +38,7 @@ then
 fi
 
 # executing real2GAME
-$real2game_home_dir/run.sh $omp_num_threads $real2game_home_dir $background_file 1 $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string $model_home_dir
+$real2game_home_dir/run.sh $nsoillays $n_layers $res_id $omp_num_threads $real2game_home_dir $background_file 1 $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string $model_home_dir
 # the output of the previous run is not needed anymore now
 rm -r $model_home_dir/output/$run_id_previous
 

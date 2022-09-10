@@ -1,10 +1,12 @@
 #!/bin/bash
 
 efs_home_dir=~/EFS # directory of EFS
+model_id=0 # 0: GAME, 1: L-GAME
+n_layers=26 #  number of layers of the model
+nsoillays=5 # number of soil layers of the model
 cycle=(0 6 12 18) # the UTC times of the analyses
 delta_t_between_analyses_min=360 # the temporal distance between two analysesin minutes
 run_spans_min=($((168*60)) $((168*60)) $((168*60)) $((168*60))) # the lengths of the runs in minutes
-model_id=0 # 0: GAME, 1: L-GAME
 target=4200 # time length we target for the whole procedure
 real2game_home_dir=~/real2GAME # the directory where real2GAME resides
 model_home_dir=~/GAME # the home directory of the model
@@ -15,6 +17,13 @@ map_plot_interval_early_min=$((3*60)) # the temporal distance between two plots 
 map_plot_interval_late_min=$((6*60)) # the temporal distance between two plots after 72 hrs
 figs_save_path=~/website/data # the path to which the maps will be saved
 omp_num_threads=2 # number of OMP threads
+
+# this quantity is only relevant for GAME
+res_id=5 # resolution ID of GAME
+
+# these quantities are only relevant for L-GAME
+ny=35 # number of gridpoints in y-direction
+nx=35 # number of gridpoints in x-direction
 
 # That's it, now the procedure will be started.
 source $efs_home_dir/sh/root_script.sh
