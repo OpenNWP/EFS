@@ -1,6 +1,6 @@
 #!/bin/bash
 
-START=$(date +%s)
+start=$(date +%s)
 
 # This file manages model runs including pre- and postprocessing.
 
@@ -18,7 +18,7 @@ then
 fi
 run_id="EFS_$analysis_year$analysis_month$analysis_day$analysis_hour_extended_string"
 
-START_ASSIMILATION=$(date +%s)
+start_initialization=$(date +%s)
 
 # finding the background_file
 # default
@@ -43,14 +43,14 @@ $real2game_home_dir/run.sh $model_target_id $model_src_id $nsoillays $n_layers $
 rm -r $model_home_dir/output/$run_id_previous
 
 # time keeping
-END_ASSIMILATION=$(date +%s)
-DIFF_ASSIMILATION=$(echo "$END_ASSIMILATION - $START_ASSIMILATION" | bc)
+end_initialization=$(date +%s)
+diff_initialization=$(echo "$end_initialization - $start_initialization" | bc)
 
-START_MODEL=$(date +%s)
+start_model=$(date +%s)
 # executing the model
 $model_home_dir/run_scripts/op.sh $omp_num_threads $delta_t_between_analyses_min 1 $run_id $run_span_min $model_home_dir $analysis_year $analysis_month $analysis_day $analysis_hour_extended_string
-END_MODEL=$(date +%s)
-DIFF_MODEL=$(echo "$END_MODEL - $START_MODEL" | bc)
+end_model=$(date +%s)
+diff_model=$(echo "$end_model - $start_model" | bc)
 
 # clean-up of FTP directories
 directory=$ftp_destination/model_output/surface/$analysis_hour"UTC"
@@ -64,7 +64,7 @@ source $efs_home_dir/sh/cleanup.sh
 cp $model_home_dir/output/$run_id/*surface.nc $ftp_destination/model_output/surface/$analysis_hour"UTC"/
 cp $model_home_dir/output/$run_id/*pressure_levels.nc $ftp_destination/model_output/pressure_levels/$analysis_hour"UTC"/
 
-START_PP=$(date +%s)
+start_pp=$(date +%s)
 if [ $plot_maps -eq 1 ]
 then
 
@@ -83,8 +83,8 @@ fi
 rm $model_home_dir/output/$run_id/*surface.nc
 rm $model_home_dir/output/$run_id/*pressure_levels.nc
 
-END_PP=$(date +%s)
-DIFF_PP=$(echo "$END_PP - $START_PP" | bc)
+end_pp=$(date +%s)
+diff_pp=$(echo "$end_pp - $start_pp" | bc)
 
 # deleting the input from the model's input directory apart from the standard background state
 mv $model_home_dir/nwp_init/standard_oro1.nc $model_home_dir/standard_oro1.nc
@@ -92,18 +92,18 @@ rm $model_home_dir/nwp_init/*
 mv $model_home_dir/standard_oro1.nc $model_home_dir/nwp_init/standard_oro1.nc
 
 # time analysis
-END=$(date +%s)
-DIFF=$(echo "$END - $START" | bc)
-assimilation_percentage=$(python3 -c "print(round(100*$DIFF_ASSIMILATION/$DIFF))")
-model_percentage=$(python3 -c "print(round(100*$DIFF_MODEL/$DIFF))")
-pp_percentage=$(python3 -c "print(round(100*$DIFF_PP/$DIFF))")
+end=$(date +%s)
+diff=$(echo "$end - $start" | bc)
+initialization_percentage=$(python3 -c "print(round(100*$diff_initialization/$diff))")
+model_percentage=$(python3 -c "print(round(100*$diff_model/$diff))")
+pp_percentage=$(python3 -c "print(round(100*$diff_pp/$diff))")
 
 echo ""
 echo "Time usage analysis:"
 echo "absolute (s):"
-echo "total: $DIFF"
+echo "total: $diff"
 echo "relative (%):"
-echo "initialization: $assimilation_percentage "
+echo "initialization: $initialization_percentage "
 echo "model: $model_percentage"
 echo "post-processing: $pp_percentage"
 
