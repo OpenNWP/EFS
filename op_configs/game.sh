@@ -8,7 +8,6 @@ nsoillays=5 # number of soil layers of the model
 cycle=(0 6 12 18) # the UTC times of the analyses
 delta_t_between_analyses_min=360 # the temporal distance between two analysesin minutes
 run_spans_min=($((168*60)) $((168*60)) $((168*60)) $((168*60))) # the lengths of the runs in minutes
-target=4200 # time length we target for the whole procedure
 real2game_home_dir=~/real2GAME # the directory where real2GAME resides
 model_home_dir=~/GAME # the home directory of the model
 ftp_destination=~/website/data # the directory where to place the output files

@@ -76,7 +76,7 @@ then
   else
     $model_home_dir/plotting/plot_maps_batch.sh $omp_num_threads 0 $map_plot_interval_early_min $figs_save_path/maps/$analysis_hour"UTC" $model_home_dir $run_id $run_span_min
   fi
-	
+  
 fi
 
 # cleaning the output directory of GAME
@@ -100,14 +100,12 @@ pp_percentage=$(python3 -c "print(round(100*$DIFF_PP/$DIFF))")
 
 echo ""
 echo "Time usage analysis:"
-echo "absolute:"
-echo "			reality	/ s	target / s":
-echo "total:			$DIFF		$target"
-echo "relative:"
-echo "			reality	/ %	target / %":
-echo "initialization:		$assimilation_percentage 		2"
-echo "model:			$model_percentage 		73"
-echo "post-processing:	$pp_percentage 		25"
+echo "absolute (s):"
+echo "total: $DIFF"
+echo "relative (%):"
+echo "initialization: $assimilation_percentage "
+echo "model: $model_percentage"
+echo "post-processing: $pp_percentage"
 
 
 
