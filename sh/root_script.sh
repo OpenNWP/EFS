@@ -7,7 +7,7 @@ start=$(date +%s)
 source $efs_home_dir/sh/determine_latest_analysis_time.sh
 
 # deleting old data from the model output directory
-directory=$ftp_destination/maps/$analysis_hour"UTC"
+directory=$output_destination/maps/$analysis_hour"UTC"
 source $efs_home_dir/sh/cleanup.sh
 
 # setting the run ID
@@ -53,16 +53,16 @@ end_model=$(date +%s)
 diff_model=$(echo "$end_model - $start_model" | bc)
 
 # clean-up of FTP directories
-directory=$ftp_destination/model_output/surface/$analysis_hour"UTC"
+directory=$output_destination/model_output/surface/$analysis_hour"UTC"
 source $efs_home_dir/sh/cleanup.sh
-directory=$ftp_destination/model_output/pressure_levels/$analysis_hour"UTC"
+directory=$output_destination/model_output/pressure_levels/$analysis_hour"UTC"
 source $efs_home_dir/sh/cleanup.sh
-directory=$ftp_destination/maps/$analysis_hour"UTC"
+directory=$output_destination/maps/$analysis_hour"UTC"
 source $efs_home_dir/sh/cleanup.sh
 
 # copying the output to the FTP server
-cp $model_home_dir/output/$run_id/*surface.nc $ftp_destination/model_output/surface/$analysis_hour"UTC"/
-cp $model_home_dir/output/$run_id/*pressure_levels.nc $ftp_destination/model_output/pressure_levels/$analysis_hour"UTC"/
+cp $model_home_dir/output/$run_id/*surface.nc $output_destination/model_output/surface/$analysis_hour"UTC"/
+cp $model_home_dir/output/$run_id/*pressure_levels.nc $output_destination/model_output/pressure_levels/$analysis_hour"UTC"/
 
 start_pp=$(date +%s)
 if [ $plot_maps -eq 1 ]
