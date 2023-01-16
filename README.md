@@ -18,7 +18,7 @@ The general purpose of the EFS is to
 
 ## Background state file generation
 
-Normally, EFS will pick the result of the previous model run as the background state of the initialization. In the case of the first run of a forecast cycle, however, this is not possible. Instead, the standard atmosphere is used as the background state. In order to create the required file, a run script called `write_icao_atmosphere.sh` is included in GAME, which needs to be executed once.
+Normally, EFS will pick the result of the previous model run as the background state of the initialization. In the case of the first run of a forecast cycle, however, this is not possible. Instead, the standard atmosphere is used as the background state. In order to create the required file, a run script called `write_icao_atmosphere.sh` is included in GAME and L-GAME, which needs to be executed once.
 
 The rest is rather self-explanatory.
 
