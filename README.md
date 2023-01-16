@@ -9,7 +9,7 @@ The general purpose of the EFS is to
 * call real2GAME for interpolating the analysis of another model to the model grid of (L-)GAME and, if necesary, boundary conditions for L-GAME,
 * run GAME and/or L-GAME,
 * execute the plot scripts of GAME and/or L-GAME to produce visual products,
-* manage uploading the data to a website and removing old data.
+* manage uploading the data to a file server and removing old data.
 
 ## Directory structure
 
