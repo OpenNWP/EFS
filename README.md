@@ -26,6 +26,7 @@ The rest is rather self-explanatory.
 
 If GAME and real2GAME are properly installed,
 
+	./setup_output_directories.sh
 	./op_configs/game.sh
 
 will execute an NWP run of GAME. Modify the directories in `setup_output_directories.sh` and `game.sh` according to your directory structure.
