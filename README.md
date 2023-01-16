@@ -22,12 +22,19 @@ Normally, EFS will pick the result of the previous model run as the background s
 
 The rest is rather self-explanatory.
 
+## Installation
+
+	git clone https://github.com/OpenNWP/EFS
+	cd EFS
+	./setup_output_directories.sh
+
+Modify the directories in `setup_output_directories.sh` according to your directory structure.
+
 ## First try for an execution
 
 If GAME and real2GAME are properly installed,
 
-	./setup_output_directories.sh
 	./op_configs/game.sh
 
-will execute an NWP run of GAME. Modify the directories in `setup_output_directories.sh` and `game.sh` according to your directory structure.
+will execute an NWP run of GAME. Modify the directories in `game.sh` according to your directory structure.
 
