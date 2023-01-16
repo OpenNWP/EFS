@@ -8,7 +8,7 @@ The general purpose of the EFS is to
 
 * call real2GAME for interpolating the analysis of another model to the model grid of (L-)GAME and, if necesary, boundary conditions for L-GAME,
 * run GAME and/or L-GAME,
-* execute the plot scripts of GAME to produce visual products,
+* execute the plot scripts of GAME and/or L-GAME to produce visual products,
 * manage uploading the data to a website and removing old data.
 
 ## Directory structure
@@ -18,7 +18,7 @@ The general purpose of the EFS is to
 
 ## Background state file generation
 
-Normally, EFS will pick the result of the previous model run as the background state of the data assimilation. In the case of the first run of a forecast cycle, however, this is not possible. Instead, the standard atmosphere is used as the background state. In order to create the required file, a run script called `write_icao_atmosphere.sh` is included in GAME, which needs to be executed once.
+Normally, EFS will pick the result of the previous model run as the background state of the initialization. In the case of the first run of a forecast cycle, however, this is not possible. Instead, the standard atmosphere is used as the background state. In order to create the required file, a run script called `write_icao_atmosphere.sh` is included in GAME, which needs to be executed once.
 
 The rest is rather self-explanatory.
 
