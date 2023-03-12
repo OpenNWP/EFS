@@ -79,6 +79,9 @@ then
   
 fi
 
+# creating the JSON files
+python3 /home/ubuntu/opennwp_website/netcdf2json.py $model_home_dir/output/$run_id $output_destination/model_output/surface/$analysis_hour"UTC"/json
+
 # cleaning the output directory of GAME
 rm $model_home_dir/output/$run_id/*surface.nc
 rm $model_home_dir/output/$run_id/*pressure_levels.nc
