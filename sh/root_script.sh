@@ -60,11 +60,15 @@ source $efs_home_dir/sh/cleanup.sh
 directory=$output_destination/maps/$analysis_hour"UTC"
 source $efs_home_dir/sh/cleanup.sh
 
-# copying the output to the FTP server
+# copying the output to a directory that is accessible by the webserver
 cp $model_home_dir/output/$run_id/*surface.nc $output_destination/model_output/surface/$analysis_hour"UTC"/
 cp $model_home_dir/output/$run_id/*pressure_levels.nc $output_destination/model_output/pressure_levels/$analysis_hour"UTC"/
 
 start_pp=$(date +%s)
+
+# creating the JSON files
+python3 $model_home_dir/plotting/py/netcdf2json.py $model_home_dir/output/$run_id $run_id $backend_dir/json
+
 if [ $plot_maps -eq 1 ]
 then
 
@@ -78,9 +82,6 @@ then
   fi
   
 fi
-
-# creating the JSON files
-python3 $model_home_dir/plotting/py/netcdf2json.py $model_home_dir/output/$run_id $run_id $backend_dir/json/$analysis_hour"UTC"
 
 # cleaning the output directory of GAME
 rm $model_home_dir/output/$run_id/*surface.nc
