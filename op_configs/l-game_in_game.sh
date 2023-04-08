@@ -32,10 +32,10 @@ source $efs_home_dir/sh/root_script.sh
 ## m h  dom mon dow   command
 #SHELL=/bin/bash
 #PYTHONPATH=/usr/bin
-#20 3 * * * /home/ubuntu/EFS/op_configs/l-game_in_game.sh > /home/ubuntu/log_0Z 2>&1
-#20 9 * * * /home/ubuntu/EFS/op_configs/l-game_in_game.sh > /home/ubuntu/log_6Z 2>&1
-#20 15 * * * /home/ubuntu/EFS/op_configs/l-game_in_game.sh > /home/ubuntu/log_12Z 2>&1
-#20 21 * * * /home/ubuntu/EFS/op_configs/l-game_in_game.sh > /home/ubuntu/log_18Z 2>&1
-#50 2 * * * /home/ubuntu/updating/update_procedure.sh > /home/ubuntu/log_updating 2>&1
+#20 3 * * * /home/ubuntu/EFS/op_configs/l-game_in_game.sh > /home/ubuntu/logs/log_0Z 2>&1
+#20 9 * * * /home/ubuntu/EFS/op_configs/l-game_in_game.sh > /home/ubuntu/logs/log_6Z 2>&1
+#20 15 * * * /home/ubuntu/EFS/op_configs/l-game_in_game.sh > /home/ubuntu/logs/log_12Z 2>&1
+#20 21 * * * /home/ubuntu/EFS/op_configs/l-game_in_game.sh > /home/ubuntu/logs/log_18Z 2>&1
+#50 2 * * * /home/ubuntu/updating/update_procedure.sh > /home/ubuntu/logs/log_updating 2>&1
 #
 
