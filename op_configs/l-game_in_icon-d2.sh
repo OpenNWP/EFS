@@ -10,12 +10,12 @@ delta_t_between_analyses_min=360 # the temporal distance between two analysesin 
 run_spans_min=($((27*60)) $((27*60)) $((27*60)) $((27*60))) # the lengths of the runs in minutes
 real2game_home_dir=~/real2GAME # the directory where real2GAME resides
 model_home_dir=~/GAME # the home directory of the model
-output_destination=~/website/data # the directory where to place the output files
+output_destination=~/opennwp/data # the directory where to place the output files
 analysis_delay_min=70 # the number of minutes after which an analysis becomes available
 plot_maps=1 # set this to one if you want to plot maps
 map_plot_interval_early_min=$((1*60)) # the temporal distance between two plots before 72 hrs
 map_plot_interval_late_min=$((6*60)) # the temporal distance between two plots after 72 hrs
-figs_save_path=~/website/data # the path to which the maps will be saved
+figs_save_path=~/opennwp/data # the path to which the maps will be saved
 omp_num_threads=2 # number of OMP threads
 
 # this quantity is only relevant for GAME
