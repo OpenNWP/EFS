@@ -36,6 +36,6 @@ source $efs_home_dir/sh/root_script.sh
 #20 9 * * * /home/ubuntu/EFS/op_configs/l-game_in_icon-d2.sh > /home/ubuntu/logs/log_6Z 2>&1
 #20 15 * * * /home/ubuntu/EFS/op_configs/l-game_in_icon-d2.sh > /home/ubuntu/logs/log_12Z 2>&1
 #20 21 * * * /home/ubuntu/EFS/op_configs/l-game_in_icon-d2.sh > /home/ubuntu/logs/log_18Z 2>&1
-#50 2 * * * /home/ubuntu/updating/update_procedure.sh > /home/ubuntu/logs/log_updating 2>&1
+#50 2 * * * /home/ubuntu/opennwp_website/updating/update_procedure.sh > /home/ubuntu/logs/log_updating 2>&1
 #
 
