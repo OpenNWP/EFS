@@ -22,6 +22,5 @@ for hour in ${cycle[@]}
 do
   mkdir $output_destination/model_output/pressure_levels/$hour"UTC"
   mkdir $output_destination/model_output/surface/$hour"UTC"
-  mkdir $output_destination/model_output/surface/$hour"UTC"/json
   mkdir $output_destination/maps/$hour"UTC"
 done
