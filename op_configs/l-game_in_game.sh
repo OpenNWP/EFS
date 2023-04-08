@@ -11,6 +11,7 @@ run_spans_min=($((60*60)) $((60*60)) $((60*60)) $((60*60))) # the lengths of the
 real2game_home_dir=~/real2GAME # the directory where real2GAME resides
 model_home_dir=~/GAME # the home directory of the model
 output_destination=~/opennwp/data # the directory where to place the output files
+backend_dir=~/opennwp_backend # root directory of the backend
 analysis_delay_min=70 # the number of minutes after which an analysis becomes available
 plot_maps=1 # set this to one if you want to plot maps
 map_plot_interval_early_min=$((3*60)) # the temporal distance between two plots before 72 hrs
