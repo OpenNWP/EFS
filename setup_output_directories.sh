@@ -1,6 +1,6 @@
 #!/bin/bash
 
-output_destination=~/website/data
+output_destination=~/opennwp/data
 cycle=(00 06 12 18)
 
 # end of usual input section
