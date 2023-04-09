@@ -1,7 +1,7 @@
 #!/bin/bash
 
 output_destination=~/website/data
-cycle=(0 6 12 18)
+cycle=(00 06 12 18)
 
 # end of usual input section
 
