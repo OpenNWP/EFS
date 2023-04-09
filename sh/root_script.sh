@@ -6,10 +6,6 @@ start=$(date +%s)
 
 source $efs_home_dir/sh/determine_latest_analysis_time.sh
 
-# deleting old data from the model output directory
-directory=$output_destination/maps/$analysis_hour"UTC"
-source $efs_home_dir/sh/cleanup.sh
-
 # setting the run ID
 analysis_hour_string=$analysis_hour
 if [ $analysis_hour -lt 10 ]
@@ -17,6 +13,10 @@ then
   analysis_hour_string="0$analysis_hour"
 fi
 run_id="EFS_$analysis_year$analysis_month$analysis_day$analysis_hour_string"
+
+# deleting old data from the model output directory
+directory=$output_destination/maps/$analysis_hour_string"UTC"
+source $efs_home_dir/sh/cleanup.sh
 
 start_initialization=$(date +%s)
 
